@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XGEN Innovations | Home</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== GLOBAL STYLES ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background: #000;
+      overflow-x: hidden;
+    }
+
+    /* ========== MENU BAR ========== */
+    .menu-bar {
+      position: fixed;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+      height: 9%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 25px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .menu-bar img {
+      object-fit: contain;
+    }
+
+    .logo {
+      height: 60px;
+      width: 120px;
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+    }
+
+    .menu-icon {
+      height: 35px;
+      width: 35px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    /* ========== DROPDOWN MENU ========== */
+    .dropdown {
+      position: fixed;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+      max-width: 1200px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+      max-height: 0;
+      opacity: 0;
+      z-index: 90;
+    }
+
+    .dropdown.open {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    .dropdown ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      gap: 15px;
+    }
+
+    .dropdown ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .dropdown ul li a:hover {
+      color: #ff7300;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #ff7300, #ff0080);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #ffffffd4;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 700px;
+    }
+
+    .cta-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 15px 50px;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(90deg, #ff7300, #ff0080);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 115, 0, 0.3);
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 30px rgba(255, 115, 0, 0.6);
+    }
+
+    /* ========== SECOND SECTION ========== */
+    .second-section {
+      height: 100vh;
+      width: 100%;
+      background-color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8%;
+      gap: 50px;
+    }
+
+    .second-section .text-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .second-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .second-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    .side-image {
+      flex: 1;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* ========== RESPONSIVE DESIGN ========== */
+    @media (max-width: 768px) {
+      .menu-bar {
+        width: 90%;
+        padding: 12px 18px;
+      }
+
+      .dropdown {
+        width: 90%;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .logo {
+        height: 45px;
+      }
+
+      .second-section {
+        flex-direction: column;
+        padding: 40px 20px;
+      }
+
+      .side-image {
+        width: 100%;
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Menu Bar -->
+  <div class="menu-bar">
+    <img src="xgen.png" alt="XGEN Logo" class="logo">
+    <img src="menu.png" alt="Menu Icon" class="menu-icon" id="menuToggle">
+  </div>
+
+  <!-- Dropdown Menu -->
+  <div class="dropdown" id="dropdownMenu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">XGEN One</a></li>
+      <li><a href="#">XGEN Plus</a></li>
+      <li><a href="#">Mission Clearwaters</a></li>
+      <li><a href="#">The Team</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Revolution begins <span>here.</span></h1>
+    <p>
+   Introducing <strong>XGEN Plus.</strong> Our latest blazing-fast breakthrough conversational AI model for customer service.
+    </p>
+    <button class="cta-btn">Try a call</button>
+  </section>
+
+  <!-- Second Section -->
+  <section class="second-section">
+    <div class="text-content">
+      <h2>Next-generation AI technology.</h2>
+      <p>
+        At XGEN, we are pushing the boundaries of conversational intelligence with real-time
+        processing, adaptive learning, and scalable deployment for enterprises and developers.
+        Discover how XGEN Plus is transforming customer experiences through innovation and speed.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    menuToggle.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
